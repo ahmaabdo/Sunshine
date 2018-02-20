@@ -40,10 +40,11 @@ public class DetailActivity extends AppCompatActivity {
      * @return The Intent to use to start our share.
      */
     private Intent createShareForecastIntent() {
-        return ShareCompat.IntentBuilder.from(this)
+        Intent shareIntent = ShareCompat.IntentBuilder.from(this)
                 .setType("text/plain")
                 .setText(mForecast + FORECAST_SHARE_HASHTAG)
                 .getIntent();
+        return shareIntent;
     }
 
     @Override
@@ -52,5 +53,18 @@ public class DetailActivity extends AppCompatActivity {
         MenuItem menuItem = menu.findItem(R.id.action_share);
         menuItem.setIntent(createShareForecastIntent());
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent startSettingsActivity = new Intent(this, SettingsActivity.class);
+            startActivity(startSettingsActivity);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
