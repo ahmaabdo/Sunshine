@@ -16,6 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding.enabled = true
 }
 version = "26.1.0"
 
@@ -25,6 +26,7 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$version"
     implementation "com.android.support:preference-v7:$version"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.firebase:firebase-jobdispatcher:0.5.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
